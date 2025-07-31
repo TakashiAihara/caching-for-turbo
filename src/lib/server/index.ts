@@ -1,5 +1,5 @@
 import Fastify from 'fastify'
-import { serverPort } from '../constants'
+import { serverPort, serverHost } from '../constants'
 import { cleanup } from './cleanup'
 import { getProvider } from '../providers'
 import { Readable } from 'stream'
@@ -198,5 +198,5 @@ export async function server(): Promise<void> {
   })
 
   //* Start the server
-  await fastify.listen({ port: serverPort })
+  await fastify.listen({ host: serverHost, port: serverPort })
 }
